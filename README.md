@@ -21,10 +21,80 @@ A simple and elegant **Laravel package** to handle **video uploads** effortlessl
 - Lightweight and **developer-friendly**
 
 ---
+## ⚙️ Dependencies
+Before using **`dharma/laravel-video-uploader`**, install:
+- [pbmedia/laravel-ffmpeg](https://github.com/pascalbaljetmedia/laravel-ffmpeg) – handles video processing.
+```bash
+composer require pbmedia/laravel-ffmpeg:^8.7
+```
 
 ## ⚡ Installation
 
 Install via Composer:
-
 ```bash
-composer require dharma/laravel-video-uploader
+composer require dharma/laravel-video-uploader:^0.1
+```
+Publish the config file:
+```bash
+php artisan vendor:publish --provider="Dharma\VideoUploader\VideoUploaderServiceProvider" --tag=config
+```
+## 🚀 Usage Examples
+```php
+use Dharma\VideoUploader\VideoUploader;
+
+class VideoController extends Controller
+{
+    protected VideoUploader $video;
+
+    public function __construct(VideoUploader $video)
+    {
+        $this->video = $video;
+    }
+
+
+    /**
+     * List all videos
+     */
+    public function index()
+    {
+        // List videos with pagination (20 per page)
+        $videos = $this->video->list([], 20);
+        return view('video', compact('videos'));
+    }
+
+    /**
+     * Upload a new video
+     */
+    public function store(Request $request)
+    {
+        // Upload video and dispatch processing job
+        $video = $this->video->uploadVideo($request->file('video'));
+        return response()->json([
+            'message' => 'Video uploaded and queued for processing.!',
+            'video' => $video
+        ]);
+    }
+
+
+    /**
+     * Show single video
+     */
+    public function show(int $id)
+    {
+        $video = $this->video->getById($id);
+        return view('video', compact('video'));
+    }
+
+
+    /**
+     * Delete a video by ID
+     */
+    public function destroy(int $id)
+    {
+        $this->video->deleteById($id);
+        return response()->json([
+            'message' => 'Video deleted successfully.!'
+        ]);
+    }
+}
+```
