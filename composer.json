@@ -1,40 +1,34 @@
 {
-    "name": "dharma/laravel-video-uploader",
-    "description": "A Laravel package to handle large video uploads with adaptive streaming (HLS) and progress tracking.",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Dharma Raj Gurung",
-            "email": "gurungdrg30@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=8.1",
-        "pbmedia/laravel-ffmpeg": "^8.7",
-        "illuminate/support": "^10.0|^11.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Dharma\\VideoUploader\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Dharma\\VideoUploader\\Tests\\": "tests/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Dharma\\VideoUploader\\VideoUploaderServiceProvider"
-            ]
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require-dev": {
-        "phpunit/phpunit": "^11.5",
-        "orchestra/testbench": "^9.15"
+  "name": "dharma/laravel-video-uploader",
+  "description": "Laravel package to handle large video uploads with adaptive streaming (HLS) and progress tracking",
+  "type": "library",
+  "license": "MIT",
+
+  "require": {
+    "php": "^8.1",
+    "illuminate/support": "^10.0|^11.0"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "Dharma\\VideoUploader\\": "src/"
     }
+  },
+
+  "autoload-dev": {
+    "psr-4": {
+      "Dharma\\VideoUploader\\Tests\\": "tests/"
+    }
+  },
+
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Dharma\\VideoUploader\\VideoUploaderServiceProvider"
+      ]
+    }
+  },
+
+  "minimum-stability": "stable",
+  "prefer-stable": true
 }
