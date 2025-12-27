@@ -1,5 +1,3 @@
-# 📹 dharma/laravel-video-uploader
-
 [![Packagist Version](https://img.shields.io/packagist/v/dharma/laravel-video-uploader?style=flat-square)](https://packagist.org/packages/dharma/laravel-video-uploader)
 [![PHP Version](https://img.shields.io/packagist/php-v/dharma/laravel-video-uploader?style=flat-square)](https://www.php.net/)
 [![License](https://img.shields.io/packagist/l/dharma/laravel-video-uploader?style=flat-square)](LICENSE)
