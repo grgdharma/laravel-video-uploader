@@ -30,7 +30,7 @@ composer require pbmedia/laravel-ffmpeg:^8.7
 
 Install via Composer:
 ```bash
-composer require dharma/laravel-video-uploader:^0.1
+composer require dharma/laravel-video-uploader
 ```
 Publish the config file:
 ```bash
